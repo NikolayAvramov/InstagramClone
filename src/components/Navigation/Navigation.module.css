@@ -1,0 +1,26 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.navContainer {
+	margin: 1rem 0 0 1rem;
+}
+.nav {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+.name {
+	font-size: 1.7rem;
+	font-family: "Times New Roman", Times, serif;
+	margin-bottom: 20%;
+}
+.listItem {
+	list-style: none;
+	color: white;
+	font-size: 1.2rem;
+}
+.linkItem {
+	text-decoration: none;
+	color: white;
+}

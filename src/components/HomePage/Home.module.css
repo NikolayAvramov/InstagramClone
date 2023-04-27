@@ -1,0 +1,11 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.homePage {
+	display: flex;
+	flex-direction: row;
+}
+.sideNav {
+	width: 20%;
+}

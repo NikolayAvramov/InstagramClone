@@ -47,7 +47,7 @@ export function Navigation() {
 					</li>
 				</ul>
 			</nav>
-			<div className="more">
+			<div className={NavCss.more}>
 				<CgDetailsMore />
 			</div>
 		</div>

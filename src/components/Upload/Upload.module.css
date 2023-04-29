@@ -1,0 +1,60 @@
+.overlay {
+	background-color: rgba(239, 239, 239, 0.5);
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+}
+.modal {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: black;
+	width: 30%;
+	height: 50%;
+	border: 1px solid black;
+	border-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 10px 5px 5px rgb(65, 55, 55);
+	text-align: center;
+	min-height: 400px;
+}
+.closeBtn {
+	position: absolute;
+	top: 4px;
+	right: 8px;
+}
+.title {
+	font-size: 2.3rem;
+	margin-bottom: 10%;
+}
+.form {
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+	margin-left: 10%;
+	gap: 5%;
+}
+.form label {
+	font-size: 1.5rem;
+}
+.form input {
+	font-size: 1rem;
+	line-height: 1.7rem;
+}
+.button {
+	margin: 10% auto;
+	font-size: 1.4rem;
+	width: fit-content;
+	text-transform: uppercase;
+	box-shadow: 5px 5px 5px rgb(211, 206, 206);
+}
+.button:hover {
+	transform: translateY(-2px);
+	box-shadow: 5px 10px 10px rgb(243, 236, 236);
+}
+.button:active {
+	transform: translateY(-1px);
+	box-shadow: 5px 4px 3px rgb(206, 195, 195);
+}

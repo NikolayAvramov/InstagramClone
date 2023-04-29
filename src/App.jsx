@@ -1,8 +1,7 @@
-import {useState} from "react";
-import {HomePage} from "./HomePage/HomePage.jsx";
+import {HomePage} from "./components/HomePage/HomePage.jsx";
 import AppCss from "./App.module.css";
-import {Upload} from "./components/Upload/Upload.jsx";
 import {Routes, Route} from "react-router-dom";
+import {ContentProvider} from "./contexts/ContentContex.jsx";
 
 function App() {
 	async function getall() {
@@ -18,11 +17,13 @@ function App() {
 	}
 
 	return (
-		<div className={AppCss.app}>
-			<Routes>
-				<Route path="/" element={<HomePage />} />
-			</Routes>
-		</div>
+		<ContentProvider>
+			<div className={AppCss.app}>
+				<Routes>
+					<Route path="/" element={<HomePage />} />
+				</Routes>
+			</div>
+		</ContentProvider>
 	);
 }
 

@@ -8,8 +8,11 @@ import {BsSearch} from "react-icons/bs";
 import {TiMessages} from "react-icons/ti";
 import {FiUpload} from "react-icons/fi";
 import {MdOutlineNotificationsActive} from "react-icons/md";
+import {useContentContext} from "../../contexts/ContentContex.jsx";
 
 export function Navigation() {
+	const {changeShowUpload} = useContentContext();
+
 	return (
 		<div className={NavCss.navContainer}>
 			<div className={NavCss.name}>Minstagram</div>
@@ -33,7 +36,12 @@ export function Navigation() {
 							<span> Message</span>
 						</Link>
 					</li>
-					<li className={NavCss.listItem}>
+					<li
+						onClick={() => {
+							changeShowUpload(true);
+						}}
+						className={NavCss.listItem}
+					>
 						<Link className={NavCss.linkItem}>
 							<FiUpload />
 							<span> Upload</span>

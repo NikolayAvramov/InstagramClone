@@ -1,5 +1,6 @@
 import {useState} from "react";
 import UploadCss from "./Upload.module.css";
+import {useContentContext} from "../../contexts/ContentContex.jsx";
 
 const apiKey = "Nod77Suh6pVQC0OaelhM67KBCV8kdGrPUwIBmdAQ";
 const jsKey = "YEkcMzkJtePGSvK42biSaZejFiEpiXT94xkmXt0m";
@@ -9,6 +10,7 @@ export function Upload() {
 		post: ""
 	});
 
+	const {changeShowUpload} = useContentContext();
 	function onDataChange(e) {
 		setData(state => ({...state, [e.target.name]: e.target.value}));
 	}
@@ -29,7 +31,9 @@ export function Upload() {
 		<div className={UploadCss.overlay}>
 			<div className={UploadCss.modal}>
 				<h3 className={UploadCss.title}>Create new post</h3>
-				<p className={UploadCss.closeBtn}>x</p>
+				<span onClick={() => changeShowUpload(false)} className={UploadCss.closeBtn}>
+					x
+				</span>
 				<form className={UploadCss.form} action="upload">
 					<label htmlFor="info">About post</label>
 					<input type="text" name="post" placeholder="Say something about this post" value={data.post} onChange={onDataChange} />

@@ -25,6 +25,9 @@
 	top: 4px;
 	right: 8px;
 }
+.closeBtn:hover {
+	cursor: pointer;
+}
 .title {
 	font-size: 2.3rem;
 	margin-bottom: 10%;

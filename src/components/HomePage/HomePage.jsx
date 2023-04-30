@@ -8,9 +8,8 @@ export function HomePage() {
 	console.log(showUpload);
 	return (
 		<div className={HomeCss.homePage}>
+			{showUpload && <Upload />}
 			<div className={HomeCss.sideNav}>
-				{showUpload && <Upload />}
-
 				<Navigation />
 			</div>
 			<div className={HomeCss.timeLine}></div>

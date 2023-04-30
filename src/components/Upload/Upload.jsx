@@ -23,18 +23,29 @@ export function Upload() {
 				"X-Parse-REST-API-Key": "ED6avMsWaV66pmV2mX02WtHkDR0ojA4ppYfpUWDl",
 				"Content-Type": "application/json"
 			},
-			body: JSON.stringify(file)
+			body: JSON.stringify(data)
 		});
+		if (response.ok) {
+			changeShowUpload(false);
+		}
+		console.log(response);
 	}
 
 	return (
-		<div className={UploadCss.overlay}>
-			<div className={UploadCss.modal}>
+		<div onClick={() => changeShowUpload(false)} className={UploadCss.overlay}>
+			<div onClick={e => e.stopPropagation()} className={UploadCss.modal}>
 				<h3 className={UploadCss.title}>Create new post</h3>
 				<span onClick={() => changeShowUpload(false)} className={UploadCss.closeBtn}>
 					x
 				</span>
-				<form className={UploadCss.form} action="upload">
+				<form
+					onSubmit={e => {
+						e.preventDefault();
+						send();
+					}}
+					className={UploadCss.form}
+					action="upload"
+				>
 					<label htmlFor="info">About post</label>
 					<input type="text" name="post" placeholder="Say something about this post" value={data.post} onChange={onDataChange} />
 					<label htmlFor="image">Image</label>

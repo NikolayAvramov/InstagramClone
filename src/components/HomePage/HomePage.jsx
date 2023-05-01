@@ -3,6 +3,7 @@ import {Upload} from "../Upload/Upload.jsx";
 import {useContentContext} from "../../contexts/ContentContex.jsx";
 
 import HomeCss from "./Home.module.css";
+import {Card} from "../Card/Card.jsx";
 export function HomePage() {
 	const {showUpload} = useContentContext();
 	console.log(showUpload);
@@ -12,7 +13,13 @@ export function HomePage() {
 			<div className={HomeCss.sideNav}>
 				<Navigation />
 			</div>
-			<div className={HomeCss.timeLine}></div>
+			<div className={HomeCss.timeLine}>
+				<div className={HomeCss.cards}>
+					<Card />
+					<Card />
+					<Card />
+				</div>
+			</div>
 		</div>
 	);
 }

@@ -1,0 +1,30 @@
+.card {
+	width: 70%;
+	padding: 20px;
+
+	border-bottom: 1px solid white;
+}
+.image {
+	width: 30vw;
+	height: 600px;
+}
+.activeButtons {
+	padding: 10px 5px;
+	display: flex;
+	justify-content: space-between;
+	font-size: 1.5rem;
+}
+.link {
+	color: white;
+	margin-right: 7px;
+}
+.user {
+	display: flex;
+	align-items: center;
+	margin-bottom: 2%;
+}
+.userImg {
+	margin-right: 1%;
+	width: 40px;
+	border-radius: 50%;
+}

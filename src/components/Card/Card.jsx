@@ -4,7 +4,6 @@ import {FaRegComment, FaRegPaperPlane} from "react-icons/fa";
 import {TfiBookmark} from "react-icons/tfi";
 import {Link} from "react-router-dom";
 import CardCss from "./Card.module.css";
-
 export function Card() {
 	const [isLiked, setIsLiked] = useState(false);
 
@@ -43,8 +42,12 @@ export function Card() {
 					</Link>
 				</div>
 			</div>
+			<div className="about"></div>
 			<div>33 likes</div>
-			<div className="coments">coments</div>
+			<div className="coments">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, molestias dolorem laudantium rerum architecto adipisci ipsam dolorum enim similique sapiente dolores eos quaerat officia. Dicta ullam provident eaque vel repellendus? </p>
+			</div>
+			<input type="text" placeholder="Добавяне на коментар" />
 		</div>
 	);
 }

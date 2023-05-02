@@ -4,22 +4,26 @@ import {useContentContext} from "../../contexts/ContentContex.jsx";
 
 import HomeCss from "./Home.module.css";
 import {Card} from "../Card/Card.jsx";
+import {Login} from "../Login/Login.jsx";
 export function HomePage() {
 	const {showUpload} = useContentContext();
 	console.log(showUpload);
 	return (
 		<div className={HomeCss.homePage}>
-			{showUpload && <Upload />}
+			<Login />
+			{/* {showUpload && <Upload />}
 			<div className={HomeCss.sideNav}>
 				<Navigation />
 			</div>
-			<div className={HomeCss.timeLine}>
+			 */}
+			{/* <div className={HomeCss.timeLine}>
 				<div className={HomeCss.cards}>
 					<Card />
 					<Card />
 					<Card />
 				</div>
-			</div>
+				<div className={HomeCss.suggestion}></div>
+			</div> */}
 		</div>
 	);
 }

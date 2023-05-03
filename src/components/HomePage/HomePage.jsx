@@ -5,12 +5,13 @@ import {useContentContext} from "../../contexts/ContentContex.jsx";
 import HomeCss from "./Home.module.css";
 import {Card} from "../Card/Card.jsx";
 import {Login} from "../Login/Login.jsx";
+import {Register} from "../Register/Register.jsx";
 export function HomePage() {
 	const {showUpload} = useContentContext();
 	console.log(showUpload);
 	return (
 		<div className={HomeCss.homePage}>
-			<Login />
+			<Register />
 			{/* {showUpload && <Upload />}
 			<div className={HomeCss.sideNav}>
 				<Navigation />

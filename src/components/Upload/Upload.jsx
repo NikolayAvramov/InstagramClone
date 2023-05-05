@@ -10,25 +10,9 @@ export function Upload() {
 		post: ""
 	});
 
-	const {changeShowUpload} = useContentContext();
+	const {changeShowUpload, send} = useContentContext();
 	function onDataChange(e) {
 		setData(state => ({...state, [e.target.name]: e.target.value}));
-	}
-
-	async function send() {
-		const response = await fetch("https://parseapi.back4app.com/classes/image", {
-			method: "POST",
-			headers: {
-				"X-Parse-Application-Id": "Nod77Suh6pVQC0OaelhM67KBCV8kdGrPUwIBmdAQ",
-				"X-Parse-REST-API-Key": "ED6avMsWaV66pmV2mX02WtHkDR0ojA4ppYfpUWDl",
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify(data)
-		});
-		if (response.ok) {
-			changeShowUpload(false);
-		}
-		console.log(response);
 	}
 
 	return (
@@ -41,7 +25,7 @@ export function Upload() {
 				<form
 					onSubmit={e => {
 						e.preventDefault();
-						send();
+						send(data);
 					}}
 					className={UploadCss.form}
 					action="upload"

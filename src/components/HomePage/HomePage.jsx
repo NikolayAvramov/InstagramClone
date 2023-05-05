@@ -8,15 +8,15 @@ import {Login} from "../Login/Login.jsx";
 import {Register} from "../Register/Register.jsx";
 export function HomePage() {
 	const {showUpload} = useContentContext();
-	console.log(showUpload);
+
 	return (
 		<div className={HomeCss.homePage}>
-			<Register />
 			{/* {showUpload && <Upload />}
 			<div className={HomeCss.sideNav}>
 				<Navigation />
-			</div>
-			 */}
+			</div> */}
+			<Login />
+
 			{/* <div className={HomeCss.timeLine}>
 				<div className={HomeCss.cards}>
 					<Card />

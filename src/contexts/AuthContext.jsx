@@ -4,7 +4,7 @@ const AuthContext = createContext();
 
 export function AuthProvider({children}) {
 	const host = "https://parseapi.back4app.com";
-	const [user, setUser] = useState({});
+	const [user, setUser] = useState(false);
 
 	async function onLogin(data) {
 		const response = await fetch(host + "/login", {
@@ -17,8 +17,14 @@ export function AuthProvider({children}) {
 			},
 			body: JSON.stringify(data)
 		});
-		console.log(response);
-		return response;
+		if (!response.ok) {
+			const error = await response.json();
+			return error;
+		}
+		const result = await response.json();
+		setUser(state => ({...state, result}));
+		console.log(user);
+		return result;
 	}
 
 	async function onRegister(data) {
@@ -32,14 +38,19 @@ export function AuthProvider({children}) {
 			},
 			body: JSON.stringify(data)
 		});
-		console.log(response);
-		return response;
+		if (!response.ok) {
+			const error = await response.json();
+			return error;
+		}
+		const result = await response.json();
+		setUser(result);
+		return result;
 	}
 
 	const authValues = {
-		setUser,
 		onLogin,
-		onRegister
+		onRegister,
+		user
 	};
 	return <AuthContext.Provider value={authValues}>{children}</AuthContext.Provider>;
 }

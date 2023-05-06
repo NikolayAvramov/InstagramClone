@@ -1,10 +1,12 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+
 import {AiFillFacebook} from "react-icons/ai";
 import LoginCss from "./Login.module.css";
 import iphoneImg from "../../assets/1.png";
 import {useState} from "react";
 import {useAuthContext} from "../../contexts/AuthContext.jsx";
 export function Login() {
+	const navigate = useNavigate();
 	const [data, setData] = useState({
 		email: "",
 		password: ""
@@ -17,6 +19,9 @@ export function Login() {
 	async function onLoginSybmit(e) {
 		e.preventDefault();
 		const result = await onLogin(data);
+		if (result.code !== 101) {
+			navigate("/");
+		}
 		console.log(result);
 	}
 

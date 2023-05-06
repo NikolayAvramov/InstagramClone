@@ -14,16 +14,34 @@ export function AuthProvider({children}) {
 				"X-Parse-REST-API-Key": "ED6avMsWaV66pmV2mX02WtHkDR0ojA4ppYfpUWDl",
 				"X-Parse-Revocable-Session": "1",
 				"Content-Type": "application/json"
-			}
+			},
+			body: JSON.stringify(data)
 		});
 		console.log(response);
+		return response;
 	}
 
-	authValues = {
+	async function onRegister(data) {
+		const response = await fetch(host + "/users", {
+			method: "POST",
+			headers: {
+				"X-Parse-Application-Id": "Nod77Suh6pVQC0OaelhM67KBCV8kdGrPUwIBmdAQ",
+				"X-Parse-REST-API-Key": "ED6avMsWaV66pmV2mX02WtHkDR0ojA4ppYfpUWDl",
+				"X-Parse-Revocable-Session": "1",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(data)
+		});
+		console.log(response);
+		return response;
+	}
+
+	const authValues = {
 		setUser,
-		onLogin
+		onLogin,
+		onRegister
 	};
-	return <AuthContext.Provider>{children}</AuthContext.Provider>;
+	return <AuthContext.Provider value={authValues}>{children}</AuthContext.Provider>;
 }
 export function useAuthContext() {
 	const context = useContext(AuthContext);

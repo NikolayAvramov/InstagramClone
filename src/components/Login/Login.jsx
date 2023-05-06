@@ -5,16 +5,17 @@ import iphoneImg from "../../assets/1.png";
 import {useState} from "react";
 import {useAuthContext} from "../../contexts/AuthContext.jsx";
 export function Login() {
-	const {onLogin} = useAuthContext();
 	const [data, setData] = useState({
 		email: "",
 		password: ""
 	});
+	const {onLogin} = useAuthContext();
 	function onDataChange(e) {
 		setData(state => ({...state, [e.target.name]: e.target.value}));
 	}
 
-	async function onLoginSybmit() {
+	async function onLoginSybmit(e) {
+		e.preventDefault();
 		const result = await onLogin(data);
 		console.log(result);
 	}
@@ -25,11 +26,11 @@ export function Login() {
 			<div className={LoginCss.wrapper}>
 				<div className={LoginCss.acc}>
 					<h3 className={LoginCss.title}>Minstagram</h3>
-					<div onSubmit={onLoginSybmit} className={LoginCss.inputBox}>
-						<input className={LoginCss.input} name="email" type="text" placeholder="Please enter your email here" />
-						<input className={LoginCss.input} name="password" type="password" placeholder="Password" />
+					<form onSubmit={onLoginSybmit} className={LoginCss.inputBox}>
+						<input className={LoginCss.input} name="email" type="text" placeholder="Please enter your email here" value={data.email} onChange={onDataChange} />
+						<input className={LoginCss.input} name="password" type="password" placeholder="Password" value={data.password} onChange={onDataChange} />
 						<button className={LoginCss.loginBtn}>Log in</button>
-					</div>
+					</form>
 					<p className={LoginCss.or}>or</p>
 					<div className={LoginCss.alternative}>
 						<AiFillFacebook />

@@ -7,8 +7,8 @@ import {useEffect} from "react";
 import {useAuthContext} from "../../contexts/AuthContext.jsx";
 export function HomePage() {
 	const {user} = useAuthContext();
-	const {showUpload} = useContentContext();
-	// console.log(user);
+	const {posts} = useContentContext();
+
 	return (
 		<div className={HomeCss.homePage}>
 			{showUpload && <Upload />}
@@ -18,6 +18,7 @@ export function HomePage() {
 
 			<div className={HomeCss.timeLine}>
 				<div className={HomeCss.cards}>
+					{posts && posts.map(card => <Card></Card>)}
 					<Card />
 					<Card />
 					<Card />

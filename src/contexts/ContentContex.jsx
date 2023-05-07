@@ -1,9 +1,10 @@
 import {createContext, useContext, useState} from "react";
-import {upload} from "../services/dataService.js";
+import {getPost, upload} from "../services/dataService.js";
 const ContentContext = createContext();
 
 export function ContentProvider({children}) {
 	const [showUpload, setShowUpload] = useState(false);
+	const [posts, setPosts] = useState([]);
 
 	async function send(data) {
 		const response = await upload(data);
@@ -14,10 +15,16 @@ export function ContentProvider({children}) {
 		console.log(response);
 	}
 
+	async function showLastTwentyPosts() {
+		const posts = await getPost();
+		setPosts(state => {...state,posts})
+	}
+
 	const contextValues = {
 		showUpload,
-
-		send
+		setShowUpload,
+		send,
+		posts
 	};
 	return <ContentContext.Provider value={contextValues}>{children}</ContentContext.Provider>;
 }

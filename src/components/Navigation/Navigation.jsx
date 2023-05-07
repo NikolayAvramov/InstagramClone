@@ -11,7 +11,7 @@ import {MdOutlineNotificationsActive} from "react-icons/md";
 import {useContentContext} from "../../contexts/ContentContex.jsx";
 
 export function Navigation() {
-	const {changeShowUpload} = useContentContext();
+	const {setShowUpload} = useContentContext();
 
 	return (
 		<div className={NavCss.navContainer}>
@@ -38,7 +38,7 @@ export function Navigation() {
 					</li>
 					<li
 						onClick={() => {
-							changeShowUpload(true);
+							setShowUpload(true);
 						}}
 						className={NavCss.listItem}
 					>

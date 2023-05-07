@@ -10,16 +10,16 @@ export function Upload() {
 		post: ""
 	});
 
-	const {changeShowUpload, send} = useContentContext();
+	const {changeShowUpload, setShowUpload, send} = useContentContext();
 	function onDataChange(e) {
 		setData(state => ({...state, [e.target.name]: e.target.value}));
 	}
 
 	return (
-		<div onClick={() => changeShowUpload(false)} className={UploadCss.overlay}>
+		<div onClick={() => setShowUpload(false)} className={UploadCss.overlay}>
 			<div onClick={e => e.stopPropagation()} className={UploadCss.modal}>
 				<h3 className={UploadCss.title}>Create new post</h3>
-				<span onClick={() => changeShowUpload(false)} className={UploadCss.closeBtn}>
+				<span onClick={() => setShowUpload(false)} className={UploadCss.closeBtn}>
 					x
 				</span>
 				<form

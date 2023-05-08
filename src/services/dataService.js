@@ -22,6 +22,6 @@ export async function getPost() {
 		}
 	});
 	const result = await response.json();
-	console.log(response, result);
-	return response;
+
+	return result;
 }

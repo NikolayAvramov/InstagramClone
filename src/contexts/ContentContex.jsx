@@ -16,11 +16,14 @@ export function ContentProvider({children}) {
 	}
 
 	async function showLastTwentyPosts() {
-		const posts = await getPost();
-		setPosts(state => {...state,posts})
+		const takedPosts = await getPost();
+
+		setPosts(takedPosts.results);
+		console.log(posts);
 	}
 
 	const contextValues = {
+		showLastTwentyPosts,
 		showUpload,
 		setShowUpload,
 		send,

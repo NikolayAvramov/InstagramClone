@@ -7,8 +7,10 @@ import {useEffect} from "react";
 import {useAuthContext} from "../../contexts/AuthContext.jsx";
 export function HomePage() {
 	const {user} = useAuthContext();
-	const {posts} = useContentContext();
-
+	const {posts, showUpload, showLastTwentyPosts} = useContentContext();
+	useEffect(() => {
+		showLastTwentyPosts().then(console.log(posts));
+	}, []);
 	return (
 		<div className={HomeCss.homePage}>
 			{showUpload && <Upload />}
@@ -17,12 +19,7 @@ export function HomePage() {
 			</div>
 
 			<div className={HomeCss.timeLine}>
-				<div className={HomeCss.cards}>
-					{posts && posts.map(card => <Card></Card>)}
-					<Card />
-					<Card />
-					<Card />
-				</div>
+				<div className={HomeCss.cards}>{posts !== [] && posts.map(post => <Card info={post}></Card>)}</div>
 				<div className={HomeCss.suggestion}></div>
 			</div>
 		</div>

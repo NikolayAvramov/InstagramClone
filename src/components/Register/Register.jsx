@@ -18,7 +18,9 @@ export function Register() {
 	async function onREgisterSybmit(e) {
 		e.preventDefault();
 		const result = await onRegister(data);
-		console.log(result);
+		if (result.code !== 101) {
+			navigate("/");
+		}
 	}
 
 	return (
@@ -49,7 +51,10 @@ export function Register() {
 
 				<div className={RegisterCss.noAcc}>
 					<p>
-						Have an account? <Link className={RegisterCss.signULink}>Log in</Link>
+						Have an account?{" "}
+						<Link to={"/login"} className={RegisterCss.signULink}>
+							Log in
+						</Link>
 					</p>
 				</div>
 			</div>

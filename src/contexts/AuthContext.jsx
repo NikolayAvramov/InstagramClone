@@ -1,10 +1,11 @@
 import {createContext, useState} from "react";
 import {useContext} from "react";
+import {useLocalStorage} from "../hooks/useLocalStorage.js";
 const AuthContext = createContext();
 
 export function AuthProvider({children}) {
 	const host = "https://parseapi.back4app.com";
-	const [user, setUser] = useState(false);
+	const [user, setUser] = useLocalStorage("user", "");
 
 	async function onLogin(data) {
 		const response = await fetch(host + "/login", {
@@ -22,8 +23,8 @@ export function AuthProvider({children}) {
 			return error;
 		}
 		const result = await response.json();
-		setUser(state => ({...state, result}));
-		console.log(user);
+		setUser(result);
+
 		return result;
 	}
 

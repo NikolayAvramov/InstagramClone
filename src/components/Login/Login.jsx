@@ -22,7 +22,6 @@ export function Login() {
 		if (result.code !== 101) {
 			navigate("/");
 		}
-		console.log(result);
 	}
 
 	return (
@@ -46,7 +45,10 @@ export function Login() {
 
 				<div className={LoginCss.noAcc}>
 					<p>
-						Don't have an account? <Link className={LoginCss.signULink}>Sign up</Link>
+						Don't have an account?{" "}
+						<Link to={"/register"} className={LoginCss.signULink}>
+							Sign up
+						</Link>
 					</p>
 				</div>
 			</div>

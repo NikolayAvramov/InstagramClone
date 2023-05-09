@@ -4,17 +4,19 @@ import {FaRegComment, FaRegPaperPlane} from "react-icons/fa";
 import {TfiBookmark} from "react-icons/tfi";
 import {Link} from "react-router-dom";
 import CardCss from "./Card.module.css";
+import {useAuthContext} from "../../contexts/AuthContext.jsx";
 export function Card({info}) {
 	const [isLiked, setIsLiked] = useState(false);
-	console.log(info);
+	const {user} = useAuthContext();
+	console.log(user);
 	function chagneLikeStatus() {
 		setIsLiked(state => !state);
 	}
 	return (
 		<div className={CardCss.card}>
 			<div className={CardCss.user}>
-				<img className={CardCss.userImg} src="https://img.freepik.com/free-photo/senior-man-face-portrait-wearing-bowler-hat_53876-148154.jpg" alt="user" />
-				<h4>ffdfdfsd</h4>
+				<img className={CardCss.userImg} src={user.profilePic} alt="user" />
+				<h4>{user.username}</h4>
 			</div>
 			<img className={CardCss.image} src={info.image} alt="MonaLisa" />
 			<div className={CardCss.activeButtons}>

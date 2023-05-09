@@ -9,7 +9,7 @@ export function HomePage() {
 	const {user} = useAuthContext();
 	const {posts, showUpload, showLastTwentyPosts} = useContentContext();
 	useEffect(() => {
-		showLastTwentyPosts().then(console.log(posts));
+		showLastTwentyPosts();
 	}, []);
 	return (
 		<div className={HomeCss.homePage}>

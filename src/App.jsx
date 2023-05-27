@@ -6,6 +6,7 @@ import {AuthProvider} from "./contexts/AuthContext.jsx";
 import {Login} from "./components/Login/Login.jsx";
 import {Register} from "./components/Register/Register.jsx";
 import {RouteGuards} from "./components/Guards/RouteGuards.jsx";
+import { ProfileView } from "./components/Profile/ProfileView.jsx";
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 						<Route path="/register" element={<Register />} />
 						<Route element={<RouteGuards />}>
 							<Route path="/" element={<HomePage />} />
+							<Route path="/profile" element={<ProfileView/> } />
 						</Route>
 					</Routes>
 				</div>

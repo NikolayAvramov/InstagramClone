@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.profile {
+    width: 80%;
+
+    margin-left: 10%;
+}
+.head {
+    padding-top: 2.5rem;
+    height: 25rem;
+    border-bottom: 1px solid rgb(207, 179, 179);
+    display: flex;
+
+    justify-content: center;
+}
+.userImg {
+    height: 20rem;
+    width: 20rem;
+    border-radius: 50%;
+}
+.info {
+    font-size: 2rem;
+    margin-left: 3rem;
+    width: 30%;
+}
+.settings {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+}
+.body {
+    height: 100vh;
+}
+.bodyNav {
+    margin-top: 2rem;
+    font-size: 2rem;
+    display: flex;
+    text-transform: uppercase;
+    margin-left: 30%;
+    width: 40%;
+    justify-content: space-between;
+}

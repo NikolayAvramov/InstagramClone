@@ -5,12 +5,22 @@ import { TfiBookmark } from "react-icons/tfi";
 import { Link } from "react-router-dom";
 import CardCss from "./Card.module.css";
 import { useAuthContext } from "../../contexts/AuthContext.jsx";
+import { giveALike } from "../../services/dataService";
 export function Card({ info }) {
     const [isLiked, setIsLiked] = useState(false);
     const { user } = useAuthContext();
-    console.log(user);
+
     function chagneLikeStatus() {
         setIsLiked(state => !state);
+        const newLike = info.likes * 1 + 1;
+
+        let data = {
+            image: "",
+            post: "",
+            likes: newLike,
+        };
+
+        giveALike(info.objectId, data);
     }
     return (
         <div className={CardCss.card}>

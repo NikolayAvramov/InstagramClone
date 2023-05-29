@@ -5,7 +5,7 @@ const ContentContext = createContext();
 export function ContentProvider({ children }) {
     const [showUpload, setShowUpload] = useState(false);
     const [posts, setPosts] = useState([]);
-    const [showingContent, setShowingContent] = useState("");
+    const [showingContent, setShowingContent] = useState("home");
 
     async function send(data) {
         const response = await upload(data);

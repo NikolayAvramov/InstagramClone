@@ -22,15 +22,15 @@ export function HomePage() {
             </div>
 
             <div className={HomeCss.timeLine}>
-                {showingContent == "home" ? (
+                {showingContent !== "home" ? (
+                    <ProfileView />
+                ) : (
                     <div className={HomeCss.cards}>
                         {posts &&
                             posts.map(post => (
                                 <Card key={post.id} info={post}></Card>
                             ))}
                     </div>
-                ) : (
-                    <ProfileView />
                 )}
 
                 <div className={HomeCss.suggestion}></div>
